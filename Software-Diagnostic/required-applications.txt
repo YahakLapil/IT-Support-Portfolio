@@ -1,0 +1,5 @@
+Microsoft Word|Microsoft 365|WINWORD
+Microsoft Excel|Microsoft 365|EXCEL
+Microsoft Outlook|Microsoft 365|OUTLOOK
+Microsoft Edge|Microsoft Edge|msedge
+Google Chrome|Google Chrome|chrome
