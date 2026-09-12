@@ -51,6 +51,7 @@ foreach ($line in $requiredApps) {
         Write-Host "CONFIGURATION ERROR"
         Write-Host "Invalid application entry: $line"
         Write-Host "Expected format: ApplicationName|RegistryPattern|ProcessName"
+	Write-Host ""
         continue
     }
 
@@ -78,8 +79,6 @@ foreach ($line in $requiredApps) {
     }
 }
 
-$serviceIssues = @()
-
 Write-Host ""
 Write-Host "[SERVICE CHECK]"
 
@@ -98,6 +97,7 @@ foreach ($line in $requiredServices) {
         Write-Host "CONFIGURATION ERROR"
         Write-Host "Invalid service entry: $line"
         Write-Host "Expected format: DisplayName|ServiceName"
+	Write-Host ""
         continue
     }
 
@@ -182,8 +182,6 @@ else {
     Write-Host "Disk Status : LOW"
 }
 
-$timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-
 Write-Host ""
 Write-Host "[DIAGNOSIS]"
 
@@ -240,6 +238,7 @@ else {
 
 $report += @"
 
+
 [SERVICE ISSUES]
 "@
 
@@ -254,8 +253,8 @@ else {
 
 $report += @"
 
-[RESOURCE STATUS]
 
+[RESOURCE STATUS]
 CPU Usage       : $cpuUsage%
 Memory Usage    : $memoryUsage%
 Free Disk Space : $freeDiskGB GB
@@ -284,6 +283,7 @@ else {
 
 $report += @"
 
+
 [DIAGNOSIS]
 "@
 
@@ -291,10 +291,30 @@ if (-not $issueFound) {
     $report += "`nNo major software issue detected."
 }
 else {
-    $report += "`nAttention required. Review the warnings above."
+
+    foreach ($issue in $applicationIssues) {
+        $report += "`nWARNING - $issue"
+    }
+
+    foreach ($issue in $serviceIssues) {
+        $report += "`nWARNING - $issue"
+    }
+
+    if (-not $memoryOK) {
+        $report += "`nWARNING - High memory usage detected."
+    }
+
+    if (-not $cpuOK) {
+        $report += "`nWARNING - High CPU usage detected."
+    }
+
+    if (-not $diskOK) {
+        $report += "`nWARNING - Low disk space detected."
+    }
 }
 
 $report += @"
+
 
 ========================================
        END OF DIAGNOSTIC REPORT

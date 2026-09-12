@@ -1,0 +1,15 @@
+﻿==================================
+     NETWORK DIAGNOSTIC REPORT
+==================================
+
+Diagnostic Time       : 2026-09-12 07:48:22
+Computer Name         : INBOOK_X2
+
+IPv4 Address          : 192.168.100.12
+Default Gateway       : 192.168.100.1
+Gateway Connectivity  : True
+Internet Connectivity : True
+DNS Resolution        : True
+Port 443 Connectivity : True
+
+Diagnosis: No basic network issue found.

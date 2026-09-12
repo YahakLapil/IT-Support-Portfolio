@@ -1,3 +1,2 @@
 Print Spooler|Spooler
-Windows Update|wuauserv
-Company VPN|MyVPNService
+

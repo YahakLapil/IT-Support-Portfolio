@@ -1,0 +1,27 @@
+﻿========================================
+       SOFTWARE DIAGNOSTIC REPORT
+========================================
+
+Diagnostic Time : 2026-09-10 06:15:28
+Computer Name   : INBOOK_X2
+
+[APPLICATION ISSUES]
+No application issue detected.
+
+[SERVICE ISSUES]
+No service issue detected.
+
+[RESOURCE STATUS]
+CPU Usage       : 0%
+Memory Usage    : 65%
+Free Disk Space : 73.7 GB
+CPU Status      : NORMAL
+Memory Status   : NORMAL
+Disk Status     : NORMAL
+
+[DIAGNOSIS]
+No major software issue detected.
+
+========================================
+       END OF DIAGNOSTIC REPORT
+========================================
